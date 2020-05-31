@@ -8,41 +8,50 @@ from sklearn.preprocessing import StandardScaler
 
 sns.set()
 
-#predicting bulldozer price
-
-
 df = pd.read_csv("TrainAndValid.csv", 
-                 low_memory = False)
+                     low_memory = False)
 
-df["saledate"] = pd.to_datetime(df["saledate"]) # parsing dates
-df.sort_values(by=["saledate"], inplace = True, ascending=True)
+
+
+def preprocessing1(df):
+    #predicting bulldozer price
+    
+    df["saledate"] = pd.to_datetime(df["saledate"]) # parsing dates
+    df.sort_values(by=["saledate"], inplace = True, ascending=True)
+    
+    df.dtypes
+    df.isna().sum()
+    
+        
+        
+    #adding some new features derived from saledate
+    
+    df["saleYear"] = df["saledate"].dt.year
+    df["saleMonth"] = df["saledate"].dt.month
+    df["saleDay"] = df["saledate"].dt.day
+    df["saleDayOfWeek"] = df["saledate"].dt.dayofweek
+    df["saleWeekOfYear"] = df["saledate"].dt.weekofyear
+    
+    df.drop("saledate", axis=1, inplace=True)
+    
+    '''
+    for label, content in df.items():
+        if pd.api.types.is_string_dtype(content):
+            print(df[label].value_counts())
+            print()
+            time.sleep(3)
+    '''
+    #converting string types features to category type
+    for label, content in df.items():
+        if pd.api.types.is_string_dtype(content):
+            df[label] = content.astype("category").cat.as_ordered()
+    
+    return df
 
 df.dtypes
-df.isna().sum()
+df = preprocessing1(df)
 
-    
-    
-#adding some new features derived from saledate
 
-df["saleYear"] = df["saledate"].dt.year
-df["saleMonth"] = df["saledate"].dt.month
-df["saleDay"] = df["saledate"].dt.day
-df["saleDayOfWeek"] = df["saledate"].dt.dayofweek
-df["saleWeekOfYear"] = df["saledate"].dt.weekofyear
-
-df.drop("saledate", axis=1, inplace=True)
-
-'''
-for label, content in df.items():
-    if pd.api.types.is_string_dtype(content):
-        print(df[label].value_counts())
-        print()
-        time.sleep(3)
-'''
-#converting string types features to category type
-for label, content in df.items():
-    if pd.api.types.is_string_dtype(content):
-        df[label] = content.astype("category").cat.as_ordered()
 
 def plotting(df):
     fig, ax = plt.subplots()
@@ -54,7 +63,7 @@ def plotting(df):
 
 
 
-def preprocessing(df):
+def preprocessing2(df):
 #Imputation and converting cat to numeric values
      
     for label, content in df.items():
@@ -75,30 +84,19 @@ def preprocessing(df):
 df_train = df[df["saleYear"]!=2012]
 df_valid = df[df["saleYear"]==2012]
 
-
-df_train = preprocessing(df_train)
-df_valid = preprocessing(df_valid)
-
-
 #preprocessing datasets
-'''
-df_train = preprocessing(df_train)
-df_valid = preprocessing(df_valid)
-'''
+df_train = preprocessing2(df_train)
+df_valid = preprocessing2(df_valid)
 
 
 def correlationPlot(df):
     corr = df.corr()
     sns.set(font_scale=1)
     plt.figure(figsize=(30,30))
-    a = sns.heatmap(corr, annot = True, fmt = '.2f', square = True)
+    sns.heatmap(corr, annot = True, fmt = '.2f', square = True)
     plt.show()
     plt.close()
  
-    '''
-correlationPlot(df_train)
-'''
-
 
 ### Train - Valid Split
 
@@ -109,55 +107,19 @@ X_valid = df_valid.drop("SalePrice", axis = 1)
 y_valid = df_valid["SalePrice"]
 
 
-# Scaling
-'''
-def scale(arr):
-    sc = StandardScaler()
-    arr = sc.fit_transform(arr)
-    return arr
-
-scaled_train = scale(X_train)
-scaled_valid = scale(X_valid)
-
-#Ridge
-
-from sklearn.linear_model import Ridge
-
-model = Ridge()
-
-model.fit(scaled_train, y_train)
-
-y_preds = model.predict(scaled_valid)
-
-model.score(scaled_valid, y_valid)
-    
-'''
-
 from sklearn.ensemble import RandomForestRegressor
-from sklearn.model_selection import RandomizedSearchCV
+#n_estimators doesn't cause overfitting or underfitting more estimators more stable and powerful model
+#min_samples_leaf A smaller leaf makes the model more prone to capturing noise in train data. -> overfitting
 
-'''
-grid = {"n_estimators": [40,100,150],
-        "min_samples_leaf":[25, 35, 40],
-        "min_samples_split":[4,8,16],
-        "max_features":["auto", "sqrt"],
-        "max_samples":[None,0.7]}
-'''
-model = RandomForestRegressor(n_estimators=40,
-                                   min_samples_leaf=1,
-                                   min_samples_split=14,
+
+model = RandomForestRegressor(n_estimators=100,
+                                   min_samples_leaf=10,
                                    n_jobs=-1,
-                                   max_samples=None,
-                                   random_state=42)
+                                   max_features=0.5)
+#max_depth:Longest path between the root node and the leaf node, very high max_depth can cause overfitting
+#min_samples_split: minimum required number of observations in any given node in order to split it. too low values can cause overfitting
+###too high can cause underfit though.
 
-
-'''
-rs_model = RandomizedSearchCV(estimator=model,
-                      param_distributions=grid,
-                      n_iter=5,
-                      cv=5,#5 fold cross-validation
-                      verbose=2)
-'''
 
 
 model.fit(X_train, y_train)
@@ -170,4 +132,21 @@ model.score(X_valid, y_valid)
 from sklearn.metrics import mean_squared_log_error
 rmsle = np.sqrt(mean_squared_log_error(y_valid, y_preds))
         
+
+### test data
+
+
+df_test = pd.read_csv("Test.csv", 
+                 low_memory = False)
+
+df_test = preprocessing1(df_test)
+df_test = preprocessing2(df_test)
+
+
+test_pred = model.predict(df_test)
+
+column_dict = {"SalesID": df_test.SalesID,
+               "SalesPrice": test_pred}
+
+final_df = pd.DataFrame(column_dict)
 
