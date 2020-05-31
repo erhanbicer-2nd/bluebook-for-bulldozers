@@ -11,6 +11,7 @@ https://www.kaggle.com/c/bluebook-for-bulldozers/overview
 
 This score is a result of just trying once. To get a quick overview on this case, i didn't spent much time on feature engineering. I've encoded all categorical features with Label Encoding and i've some categorical features which need to transform to numerical features.
 
+## To-DO List
 - [ ] OneHotEncoding and LabelEncoding separately
 - [ ] Transform some categorical feature values into numerical values
 - [ ] Try different ML models
