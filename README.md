@@ -48,6 +48,7 @@ One Hot Encoding won't be used due to large number of feature columns.
  Product Size versus Tire Sizes:  
  
  <img src="img/Figure_6.png" alt="Train Set" width="40%">                           <img src="img/Figure_7.png" alt="Valid Set" width="40%">  
+ Train Set                                                                          Valid Set
  
  
  Blade Width versus Tire Sizes:  
