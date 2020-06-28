@@ -44,6 +44,10 @@ One Hot Encoding won't be used due to large number of feature columns.
   
  <img src="img/Figure_5.png" width="40%">
  
+ 
+ Product Size versus Tire Sizes:  
+ 
+ <img src="img/Figure_6.png" alt="Train Set" width="40%">                           <img src="img/Figure_7.png" alt="Valid Set" width="40%">
    
  
  
