@@ -20,7 +20,7 @@ Since there were a lot of categorical values, categorical features were encoded 
 One Hot Encoding won't be used due to large number of feature columns. 
 
 
-> *In bulldozer_v2, some changes were made.*  
+> *In bulldozerv2, some changes were made.*  
 
  Some "Object" type features as "Tire Size", "Undercarriage Pad Width", "Stick Length" were transformed into numerical features.  
  Some ordinal features as "Usage Band", "Product Size", "Blade Width", "Enclosure Type", "Grouser Type" were mapped by meaningful values like "Low" = 1, "Medium" = 2, "High" = 3.
