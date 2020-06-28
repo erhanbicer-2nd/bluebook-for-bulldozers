@@ -9,10 +9,20 @@ https://www.kaggle.com/c/bluebook-for-bulldozers/overview
 * My RMSLE score on validation data for now is :
 *0.24547*
 
-This score is a result of just trying once. To get a quick overview on this case, i didn't spent much time on feature engineering. I've encoded all categorical features with Label Encoding and i've some categorical features which need to transform to numerical features.
+Since there were a lot of categorical values, categorical features were encoded with Label Encoding rather than one hot.
 
 ## To-DO List
 - [x] OneHotEncoding and LabelEncoding separately
 - [x] Transform some categorical feature values into numerical values
-- [x] Try different ML models
+- [ ] Try XGBoost also
 - [x] More visualization to get an emphasis on data
+
+One Hot Encoding won't be used due to large number of feature columns. 
+
+
+> *In bulldozer_v2, some changes were made.*  
+
+ Some "Object" type features as "Tire Size", "Undercarriage Pad Width", "Stick Length" were transformed into numerical features.  
+ Some ordinal features as "Usage Band", "Product Size", "Blade Width", "Enclosure Type", "Grouser Type" were mapped by meaningful values like "Low" = 1, "Medium" = 2, "High" = 3.
+ 
+ 
