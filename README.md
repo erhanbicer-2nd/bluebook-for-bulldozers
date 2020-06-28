@@ -27,4 +27,4 @@ One Hot Encoding won't be used due to large number of feature columns.
  
  Correlation of Numerical Features before changes were made:  
  
- ![Correlation Matrix](/img/Figure_1.png)
+ <img src="img/Figure_1" width="40%">
