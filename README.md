@@ -28,3 +28,24 @@ One Hot Encoding won't be used due to large number of feature columns.
  Correlation of Numerical Features before changes were made:  
  
  <img src="img/Figure_1.png" width="40%">
+ 
+ 
+ Frequency of Sale Prices:  
+ 
+ <img src="img/Figure_3.png" width="40%">
+ 
+   
+ Distribution of Sale Prices due to Sale Year:  
+ 
+ <img src="img/Figure_4.png" width="40%">
+ 
+   
+ Product Size versus Sale Prices:  
+  
+ <img src="img/Figure_5.png" width="40%">
+ 
+   
+ 
+ 
+ 
+ 
