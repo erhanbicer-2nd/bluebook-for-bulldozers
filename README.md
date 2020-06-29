@@ -74,12 +74,13 @@ One Hot Encoding won't be used due to large number of feature columns.
  
  <img src="img/Figure_6.png" alt="Train Set" width="40%">                           <img src="img/Figure_7.png" alt="Valid Set" width="40%">  
 
- 
+ As it can be seen from graphs, Those features are positively correlated. High values are getting more frequent while product size is getting bigger.
  
  Blade Width versus Tire Sizes (Train Set on the left and Valid Set on the right hand side):  
  
  <img src="img/Figure_8.png" alt="Train Set" width="40%">                           <img src="img/Figure_9.png" alt="Valid Set" width="40%"> 
    
+ As it can be seen from graphs, Those features are negatively correlated. Low values are getting more frequent while blade width is getting larger.
  
  ## Feature Selection
  
