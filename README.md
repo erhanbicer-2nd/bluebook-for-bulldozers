@@ -49,7 +49,6 @@ One Hot Encoding won't be used due to large number of feature columns.
  Some "Object" type features as "Tire Size", "Undercarriage Pad Width", "Stick Length" were transformed into numerical features.  
  Some ordinal features as "Usage Band", "Product Size", "Blade Width", "Enclosure Type", "Grouser Type" were mapped by meaningful values like "Low" = 1, "Medium" = 2, "High" = 3.
  
- After changes were made RMSLE is changed to *0.24592*. Thus, we can tell there are no improvements, RMSLE has suffered from this changes.
  
  Correlation of Numerical Features before changes were made:  
  
