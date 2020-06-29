@@ -93,7 +93,7 @@ One Hot Encoding won't be used due to large number of feature columns.
  Model's performance on train data after backwards elimination 0.92786
  RMSLE:0.24485
  
- About the other procedure, manual procedure, 
+ About the other procedure, manual procedure, After fitting Random Forest Regressor, feature importances were 
  
  
  
