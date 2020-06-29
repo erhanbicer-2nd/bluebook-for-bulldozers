@@ -89,24 +89,24 @@ One Hot Encoding won't be used due to large number of feature columns.
  - Backward Elimination method
  
  In Backward Elimination, features which p values' are higher than significance level (0.05) were deleted. 2 features were deleted through this procedure and the scores afterwards:  
- Model's performance on validation data after backwards elimination 0.87622
- Model's performance on train data after backwards elimination 0.92786
+ Model's performance on validation data after backwards elimination 0.87622  
+ Model's performance on train data after backwards elimination 0.92786  
  RMSLE:0.24485
  
- About the other procedure, manual procedure, After fitting Random Forest Regressor, from feature importances, relatively unimportant feautures were deleted;
- Firstly, unimportant features have been deleted, starting with the "Thumb" feature. The scores were afterwards;
- Model's performance on validation data after feature extraction 0.87712
- Model's performance on train data after feature extraction 0.92913
+ About the other procedure, manual procedure, After fitting Random Forest Regressor, from feature importances, relatively unimportant feautures were deleted;  
+ Firstly, unimportant features have been deleted, starting with the "Thumb" feature. The scores were afterwards;  
+ Model's performance on validation data after feature extraction 0.87712  
+ Model's performance on train data after feature extraction 0.92913  
  RMSLE:0.24555
  
  Then, range of removing features were expanded and unimportant features have been deleted, starting with the "Ripper" feature. The scores were afterwards;  
- Model's performance on validation data after feature extraction 0.87621
- Model's performance on train data after feature extraction 0.92228
+ Model's performance on validation data after feature extraction 0.87621  
+ Model's performance on train data after feature extraction 0.92228  
  RMSLE:0.24457 (best RMSLE score)
  
  Then, yet again, range of removing features were expanded and unimportant features have been deleted, starting with the "Grouser_Tracks" feature. The scores were afterwards;  
- Model's performance on validation data after feature extraction 0.87364
- Model's performance on train data after feature extraction 0.91566
+ Model's performance on validation data after feature extraction 0.87364  
+ Model's performance on train data after feature extraction 0.91566  
  RMSLE:0.24460
  
  
