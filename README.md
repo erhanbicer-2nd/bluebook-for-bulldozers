@@ -6,15 +6,16 @@ https://www.kaggle.com/c/bluebook-for-bulldozers/overview
 
 * Best RMSLE score on validation data from Kaggle public leaderboard is :
 *0.22909*
-* My RMSLE score on validation data for now is :
-*0.24547*
+* My best RMSLE score on validation data for now is :
+*0.24457*
 
 Since there were a lot of categorical values, categorical features were encoded with Label Encoding rather than one hot.
 
 ## To-DO List
 - [x] OneHotEncoding and LabelEncoding separately
 - [x] Transform some categorical feature values into numerical values
-- [ ] Try XGBoost also
+- [x] Feature Selection and Extraction
+- [~] Try XGBoost also
 - [x] More visualization to get an emphasis on data
 
 One Hot Encoding won't be used due to large number of feature columns. 
