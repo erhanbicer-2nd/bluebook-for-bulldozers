@@ -41,7 +41,7 @@ Since there were a lot of categorical values, categorical features were encoded 
 - [ ] Try XGBoost also
 - [x] More visualization to get an emphasis on data
 
-One Hot Encoding won't be used due to large number of feature columns. 
+One Hot Encoding won't be used due to large number of feature columns. (Insufficient computational power)
 
 
 > *In bulldozerv2, some changes were made.*  
