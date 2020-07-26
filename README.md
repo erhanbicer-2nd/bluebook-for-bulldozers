@@ -88,6 +88,12 @@ One Hot Encoding won't be used due to large number of feature columns.
  - Manually deleting unimportant features  
  - Backward Elimination method
  
+ Baseline scores:
+ 
+ - Model's performance on validation data before feature extraction 0.8761005065934953
+ - Model's performance on train data before feature extraction 0.9294303560425823
+
+ 
  In Backward Elimination, features which p values' are higher than significance level (0.05) were deleted. 2 features were deleted through this procedure and the scores afterwards:  
  Model's performance on validation data after backwards elimination 0.87622  
  Model's performance on train data after backwards elimination 0.92786  
@@ -97,12 +103,12 @@ One Hot Encoding won't be used due to large number of feature columns.
  Firstly, unimportant features have been deleted, starting with the "Thumb" feature. The scores were afterwards;  
  Model's performance on validation data after feature extraction 0.87712  
  Model's performance on train data after feature extraction 0.92913  
- RMSLE:0.24555
+ RMSLE:0.24555 (best RMSLE score)
  
  Then, range of removing features were expanded and unimportant features have been deleted, starting with the "Ripper" feature. The scores were afterwards;  
  Model's performance on validation data after feature extraction 0.87621  
  Model's performance on train data after feature extraction 0.92228  
- RMSLE:0.24457 (best RMSLE score)
+ RMSLE:0.24457 
  
  Then, yet again, range of removing features were expanded and unimportant features have been deleted, starting with the "Grouser_Tracks" feature. The scores were afterwards;  
  Model's performance on validation data after feature extraction 0.87364  
