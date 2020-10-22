@@ -41,6 +41,7 @@ Since there were a lot of categorical values, categorical features were encoded 
 - [x] Transform some categorical feature values into numerical values
 - [x] Feature Selection and Extraction
 - [ ] Try XGBoost also
+- [ ] LSTM!
 - [x] More visualization to get an emphasis on data
 
 One Hot Encoding won't be used due to large number of feature columns. (Insufficient computational power)
