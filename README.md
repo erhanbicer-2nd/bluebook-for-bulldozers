@@ -119,7 +119,7 @@ One Hot Encoding won't be used due to large number of feature columns. (Insuffic
  - RMSLE:0.24460
  
  
- > Last edit: 29.06.2020
+ > Last edit: 29.06.20
  
  
   
